@@ -1,0 +1,3 @@
+function altwhip(thisObj) {
+
+}
