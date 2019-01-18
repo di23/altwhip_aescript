@@ -1,7 +1,18 @@
-function altwhip( thisObj ){
+(function () {
 
-alert( "Hello World!" );
+// Check for selected comp
+var curcomp = app.project.activeItem;
+if (( curcomp == null ) || !( curcomp instanceof CompItem )){
+	alert( "There is no active comp." );
+	return;
+}
 
-} // end
+// Check if one property selected
+if ( curcomp.selectedProperties.length != 1 ){
+	alert( "Select one property." );
+	return;
+}
 
-altwhip( this );
+alert( "yes" );
+
+})(); // end
