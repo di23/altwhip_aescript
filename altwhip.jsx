@@ -35,11 +35,16 @@ for ( var i = 1; i < selprop.propertyDepth - 1; i++ ){
 }
 prop_hierarchy.push( selprop.propertyGroup( selprop.propertyDepth - 1 ).matchName );
 
-// NOTE посмотреть как работает GimmePropPath
-// На универсальность можно проверять таким образом - могу редактировать имя - тогда достаю просто name,
-// не могу его редактировать, тогда достаю matchName.
-// Все проще есть propertyType, через него и находить что надо вставлять
+// Create path string
+var proppart_path = "";
+for ( var i = prop_hierarchy.length - 1; i >= 0; i-- ){
+	proppart_path += '( "' + prop_hierarchy[ i ] + '" )';
+}
 
-alert( prop_hierarchy );
+var global_path;
+var comp_path;
+var layer_path;
+
+alert( proppart_path );
 
 })(); // end
