@@ -16,14 +16,25 @@ if ( curcomp.selectedProperties.length != 1 ){ // FIXME пропорция вы�
 var selprop = curcomp.selectedProperties[ 0 ];
 
 // Find property path
-var propid = selprop.propertyIndex;
+var propid = selprop.propertyIndex; // TODO определить как считать пропорции что бы получить универсальный экспрессион 
 
-var groupids = [];
-for ( var i = 1; i < selprop.propertyDepth; i++ ){
-	groupids.push( selprop.propertyGroup( i ).name );
+var prop_hierarchy = [ propid ];
+for ( var i = 1; i < selprop.propertyDepth - 1; i++ ){
+	var curname;
+	if ( selprop.propertyGroup( i + 1 ).propertyType === PropertyType.INDEXED_GROUP ){
+		curname = selprop.propertyGroup( i ).name;
+	} else {
+		curname = selprop.propertyGroup( i ).matchName;
+	}
+	prop_hierarchy.push( selprop.propertyGroup( i ).name );
 }
+prop_hierarchy.push( selprop.propertyGroup( selprop.propertyDepth - 1 ).matchName );
+// FIXME В шэйпах, второй по очереди contents не использует матчНэйм
+// NOTE посмотреть как работает GimmePropPath
+// На универсальность можно проверять таким образом - могу редактировать имя - тогда достаю просто name,
+// не могу его редактировать, тогда достаю matchName.
+// Все проще есть propertyType, через него и находить что надо вставлять
 
-alert( groupids );
-alert( "end" );
+alert( prop_hierarchy );
 
 })(); // end
