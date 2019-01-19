@@ -2,8 +2,7 @@
 
 function copy_to_clipboard( str ){
 	// FIXME new win clipboard copied to ae twice
-	// TODO copy string has new line
-	var cmd_string = 'cmd.exe /c cmd.exe /c "echo ' + str + '| clip"'; 
+	var cmd_string = 'cmd.exe /c cmd.exe /c "echo|set/p=' + str + '|clip"'; 
 	system.callSystem( cmd_string );
 }
 
@@ -55,7 +54,5 @@ var comp_path;
 
 // Copy to clipboard
 copy_to_clipboard( layer_path );
-
-alert( "done" );
 
 })(); // end
