@@ -1,4 +1,4 @@
-(function () {
+( function (){
 
 // Check for selected comp
 var curcomp = app.project.activeItem;
@@ -8,12 +8,21 @@ if (( curcomp == null ) || !( curcomp instanceof CompItem )){
 }
 
 // Check if one property selected
-if ( curcomp.selectedProperties.length != 1 ){ // FIXME пропорция выделяется не одна а вместе с эффектом
+var selprop;
+if ( curcomp.selectedProperties.length == 1 ){
+	selprop = curcomp.selectedProperties[ 0 ];
+
+} else if ( curcomp.selectedProperties.length == 2 ){
+	if ( curcomp.selectedProperties[ 0 ].matchName == curcomp.selectedProperties[ 1 ].parentProperty.matchName ){
+		selprop = curcomp.selectedProperties[ 1 ];
+	} else {
+		alert( "Select one property." );
+		return;
+	}
+} else {
 	alert( "Select one property." );
 	return;
 }
-
-var selprop = curcomp.selectedProperties[ 0 ];
 
 // Find property path
 var propid;
