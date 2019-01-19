@@ -1,5 +1,12 @@
 (function () {
 
+function copy_to_clipboard( str ){
+	// FIXME new win clipboard copied to ae twice
+	// TODO copy string has new line
+	var cmd_string = 'cmd.exe /c cmd.exe /c "echo ' + str + '| clip"'; 
+	system.callSystem( cmd_string );
+}
+
 // Check for selected comp
 var curcomp = app.project.activeItem;
 if (( curcomp == null ) || !( curcomp instanceof CompItem )){
@@ -46,6 +53,9 @@ var layer_path = "thisLayer" + proppart_path;
 var global_path;
 var comp_path;
 
-alert( layer_path );
+// Copy to clipboard
+copy_to_clipboard( layer_path );
+
+alert( "done" );
 
 })(); // end
