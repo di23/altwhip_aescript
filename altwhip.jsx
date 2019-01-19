@@ -16,7 +16,12 @@ if ( curcomp.selectedProperties.length != 1 ){ // FIXME пропорция вы�
 var selprop = curcomp.selectedProperties[ 0 ];
 
 // Find property path
-var propid = selprop.matchName;
+var propid;
+if ( selprop.parentProperty.propertyType === PropertyType.INDEXED_GROUP ){
+	propid = selprop.name;
+} else {
+	propid = selprop.matchName;
+}
 
 var prop_hierarchy = [ propid ];
 for ( var i = 1; i < selprop.propertyDepth - 1; i++ ){
