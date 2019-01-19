@@ -78,9 +78,9 @@ for ( var i = 1; i < selprop.propertyDepth; i++ ){
 var proppart_path = "";
 for ( var i = prop_hierarchy.length - 1; i >= 0; i-- ){
 
-	proppart_path += '( "' + prop_hierarchy[ i ] + '" )';
+	proppart_path += '("' + prop_hierarchy[ i ] + '")';
 }
-var path = "thisLayer" + proppart_path;
+var path = 'thisComp.layer("' + curcomp.selectedLayers[ 0 ].name + '")' + proppart_path;
 
 // ---------------------------------
 // Copy To Clipboard
