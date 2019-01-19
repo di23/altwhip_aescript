@@ -18,6 +18,12 @@ var selprop = curcomp.selectedProperties[ 0 ];
 // Find property path
 var propid = selprop.propertyIndex;
 
-alert( propid );
+var groupids = [];
+for ( var i = 1; i < selprop.propertyDepth; i++ ){
+	groupids.push( selprop.propertyGroup( i ).name );
+}
+
+alert( groupids );
+alert( "end" );
 
 })(); // end
