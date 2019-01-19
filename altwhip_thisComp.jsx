@@ -33,6 +33,13 @@ if (( curcomp == null ) || !( curcomp instanceof CompItem )){
 	return; // Exit
 }
 
+// Check if only one layer selected
+if ( curcomp.selectedLayers.length != 1 ){
+
+	alert( "More than one layer selected? No selected properties?" );
+	return; // Exit
+}
+
 // Check if one property selected
 var selprop;
 
