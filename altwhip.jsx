@@ -41,10 +41,11 @@ for ( var i = prop_hierarchy.length - 1; i >= 0; i-- ){
 	proppart_path += '( "' + prop_hierarchy[ i ] + '" )';
 }
 
+var layer_path = "thisLayer" + proppart_path;
+
 var global_path;
 var comp_path;
-var layer_path;
 
-alert( proppart_path );
+alert( layer_path );
 
 })(); // end
