@@ -1,7 +1,7 @@
 /*
 	altwhip_thisComp
 	Author: Yahor Hayeuski
-	version: 1.00
+	version: 1.10
 	Script for ft-Toolbar
 
 	Copy to clipboard expression path of the property. Path is relevant for "thisComp".
@@ -15,11 +15,16 @@
 function universal_property_name( prop ){
 
 	if ( prop.parentProperty.propertyType === PropertyType.INDEXED_GROUP ){
+
+		// TODO: specific check for Expression Controls, if not needed - don't add suffix
+
 		var suffix = "_aw";
 		if ( prop.name.slice( -suffix.length ) != suffix ){
 			prop.name += suffix;
 		}
+
 		return prop.name;
+
 	} else {
 		return prop.matchName;
 	}
