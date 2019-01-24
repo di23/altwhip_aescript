@@ -12,7 +12,7 @@
 // Functions
 // ---------------------------------
 
-function find_universal_property_name( prop ){
+function universal_property_name( prop ){
 
 	if ( prop.parentProperty.propertyType === PropertyType.INDEXED_GROUP ){
 
@@ -76,11 +76,11 @@ if ( selected_props.length == 1 ){
 // ---------------------------------
 
 // Find all properties name
-var prop_hierarchy = [ find_universal_property_name( selprop )];
+var prop_hierarchy = [ universal_property_name( selprop )];
 
 for ( var i = 1; i < selprop.propertyDepth; i++ ){
 
-	prop_hierarchy.push( find_universal_property_name( selprop.propertyGroup( i )));
+	prop_hierarchy.push( universal_property_name( selprop.propertyGroup( i )));
 }
 
 // Create path string
