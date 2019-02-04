@@ -23,8 +23,8 @@ function universal_property_name( prop ){
 				name : "Slider Control"
 			}
 		}
-		if ( prop.matchName == "ADBE Slider Control" &&
-			prop.name != "Slider Control" ){
+		if ( prop.matchName == EXP_CONTROLS_NAMES.SLIDER.matchName &&
+			prop.name != EXP_CONTROLS_NAMES.SLIDER.name ){
 			return prop.name;
 		}
 
