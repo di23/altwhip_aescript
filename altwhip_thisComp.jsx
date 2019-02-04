@@ -21,11 +21,17 @@ function universal_property_name( prop ){
 			SLIDER : {
 				matchName : "ADBE Slider Control",
 				name : "Slider Control"
+			},
+			ANGLE: {
+				matchName : "ADBE Angle Control",
+				name : "Angle Control"
 			}
 		}
-		if ( prop.matchName == EXP_CONTROLS_NAMES.SLIDER.matchName &&
-			prop.name != EXP_CONTROLS_NAMES.SLIDER.name ){
-			return prop.name;
+		for ( var exp_control in EXP_CONTROLS_NAMES ){
+			if ( prop.matchName == EXP_CONTROLS_NAMES[ exp_control ].matchName &&
+				prop.name != EXP_CONTROLS_NAMES[ exp_control ].name ){
+				return prop.name;
+			}
 		}
 
 		var suffix = "_aw";
