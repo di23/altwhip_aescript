@@ -1,7 +1,7 @@
 /*
 	altwhip_thisLayer
 	Author: Yahor Hayeuski
-	version: 1.10
+	version: 1.14
 	Script for ft-Toolbar
 
 	Copy to clipboard expression path of the property. Path is relevant for "thisLayer".
@@ -17,6 +17,16 @@ function universal_property_name( prop ){
 	if ( prop.parentProperty.propertyType === PropertyType.INDEXED_GROUP ){
 
 		// TODO: specific check for Expression Controls, if not needed - don't add suffix
+		EXP_CONTROLS_NAMES = {
+			SLIDER : {
+				matchName : "ADBE Slider Control",
+				name : "Slider Control"
+			}
+		}
+		if ( prop.matchName == EXP_CONTROLS_NAMES.SLIDER.matchName &&
+			prop.name != EXP_CONTROLS_NAMES.SLIDER.name ){
+			return prop.name;
+		}
 
 		var suffix = "_aw";
 		if ( prop.name.slice( -suffix.length ) != suffix ){

@@ -1,7 +1,7 @@
 /*
 	altwhip_global
 	Author: Yahor Hayeuski
-	version: 1.10
+	version: 1.14
 	Script for ft-Toolbar
 
 	Copy to clipboard expression path of the property. Path is global.
