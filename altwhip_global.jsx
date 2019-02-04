@@ -17,6 +17,16 @@ function universal_property_name( prop ){
 	if ( prop.parentProperty.propertyType === PropertyType.INDEXED_GROUP ){
 
 		// TODO: specific check for Expression Controls, if not needed - don't add suffix
+		EXP_CONTROLS_NAMES = {
+			SLIDER : {
+				matchName : "ADBE Slider Control",
+				name : "Slider Control"
+			}
+		}
+		if ( prop.matchName == "ADBE Slider Control" &&
+			prop.name != "Slider Control" ){
+			return prop.name;
+		}
 
 		var suffix = "_aw";
 		if ( prop.name.slice( -suffix.length ) != suffix ){
