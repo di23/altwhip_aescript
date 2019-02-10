@@ -16,21 +16,42 @@ function universal_property_name( prop ){
 
 	if ( prop.parentProperty.propertyType === PropertyType.INDEXED_GROUP ){
 
-		// TODO: specific check for Expression Controls, if not needed - don't add suffix
-		EXP_CONTROLS_NAMES = {
-			SLIDER : {
-				matchName : "ADBE Slider Control",
-				name : "Slider Control"
-			},
-			ANGLE: {
-				matchName : "ADBE Angle Control",
-				name : "Angle Control"
+		if ( prop.parentProperty.matchName == "ADBE Effect Parade" ){
+			EXP_CONTROLS_NAMES = {
+				SLIDER : {
+					matchName : "ADBE Slider Control",
+					name : "Slider Control"
+				},
+				ANGLE: {
+					matchName : "ADBE Angle Control",
+					name : "Angle Control"
+				},
+				COLOR: {
+					matchName : "ADBE Color Control",
+					name : "Color Control"
+				},
+				CHECKBOX: {
+					matchName : "ADBE Checkbox Control",
+					name : "Checkbox Control"
+				},
+				POINT: {
+					matchName : "ADBE Point Control",
+					name : "Point Control"
+				},
+				POINT3D: {
+					matchName : "ADBE Point3D Control",
+					name : "3D Point Control"
+				},
+				LAYER: {
+					matchName : "ADBE Layer Control",
+					name : "Layer Control"
+				}
 			}
-		}
-		for ( var exp_control in EXP_CONTROLS_NAMES ){
-			if ( prop.matchName == EXP_CONTROLS_NAMES[ exp_control ].matchName &&
-				prop.name != EXP_CONTROLS_NAMES[ exp_control ].name ){
-				return prop.name;
+			for ( var exp_control in EXP_CONTROLS_NAMES ){
+				if ( prop.matchName == EXP_CONTROLS_NAMES[ exp_control ].matchName &&
+					prop.name != EXP_CONTROLS_NAMES[ exp_control ].name ){
+					return prop.name;
+				}
 			}
 		}
 
