@@ -67,6 +67,14 @@ function universal_property_name( prop ){
 	}
 }
 
+function osIsWindows(){
+	var os = system.osName;
+	if ( !os.length ){ // some Windows return a blank value. Use $.os instead.
+		os = $.os;
+	}
+	return ( os.indexOf( "Win" ) != -1 ) ? true : false;
+}
+
 // ---------------------------------
 // Checks
 // ---------------------------------
@@ -132,7 +140,12 @@ var path = 'thisComp.layer("' + curcomp.selectedLayers[ 0 ].name + '")' + proppa
 // Copy To Clipboard
 // ---------------------------------
 
-var cmd_string = 'cmd.exe /c cmd.exe /c "echo|set/p=' + path + '|clip"'; // NOTE: Windows only
-system.callSystem( cmd_string );
+if ( osIsWindows()){
+	alert( "WIN" );
+} else {
+	alert( "MACOS" );
+}
+// var cmd_string = 'cmd.exe /c cmd.exe /c "echo|set/p=' + path + '|clip"'; // NOTE: Windows only
+// system.callSystem( cmd_string );
 
 })(); // end
