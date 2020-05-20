@@ -112,6 +112,8 @@ if ( selected_props.length == 1 ){
 // Property Path
 // ---------------------------------
 
+// TODO: make undo group, needed when property was renamed
+
 // Find all properties name
 var prop_hierarchy = [ universal_property_name( selprop )];
 
