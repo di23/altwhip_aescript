@@ -143,7 +143,7 @@ var path = 'thisComp.layer("' + curcomp.selectedLayers[ 0 ].name + '")' + proppa
 if ( osIsWindows()){
 	var cmd_string = 'cmd.exe /c cmd.exe /c "echo|set/p=' + path + '|clip"'; // Windows
 } else {
-	var cmd_string = 'echo "' + hello world + '" | pbcopy'; // MacOS
+	var cmd_string = 'echo "' + path + '" | pbcopy'; // MacOS
 }
 
 system.callSystem( cmd_string );
