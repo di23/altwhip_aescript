@@ -141,11 +141,11 @@ var path = 'thisComp.layer("' + curcomp.selectedLayers[ 0 ].name + '")' + proppa
 // ---------------------------------
 
 if ( osIsWindows()){
-	alert( "WIN" );
+	var cmd_string = 'cmd.exe /c cmd.exe /c "echo|set/p=' + path + '|clip"'; // Windows
 } else {
-	alert( "MACOS" );
+	var cmd_string = 'echo "' + hello world + '" | pbcopy'; // MacOS
 }
-// var cmd_string = 'cmd.exe /c cmd.exe /c "echo|set/p=' + path + '|clip"'; // NOTE: Windows only
-// system.callSystem( cmd_string );
+
+system.callSystem( cmd_string );
 
 })(); // end
